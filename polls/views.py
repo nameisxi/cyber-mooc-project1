@@ -64,8 +64,8 @@ def get_poll_by_name(request, question_name):
     print("QUESTION:", question_name)
     query = f'SELECT * FROM polls_question WHERE question_text="{question_name}";'
     question = Question.objects.raw(query)
+    # question = Question.objects.filter(question_text=question_name)
     return HttpResponse(question)
-    # return HttpResponse("question")
 
 class QuestionSearchView(generic.ListView):
     template_name = 'polls/index.html'
